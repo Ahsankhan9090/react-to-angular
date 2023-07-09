@@ -1,0 +1,86 @@
+<div class="container">
+    <nav aria-label="breadcrumb" class="main-breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item"><a href="http://example.com">User</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Profile Settings</li>
+      </ol>
+    </nav>
+  
+    <div class="row gutters-sm">
+      <div class="col-md-4 d-none d-md-block">
+        <div class="card">
+          <div class="card-body">
+            <nav class="nav flex-column nav-pills nav-gap-y-1">
+              <a  [routerLink]="['/settings']" fragment="profile" data-toggle="tab" class="nav-item nav-link has-icon nav-link-faded active">
+                Profile Information
+              </a>
+              <a [routerLink]="['/settings']" fragment="billing" class="nav-item nav-link has-icon nav-link-faded">
+                Billing
+              </a>
+              
+            </nav>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-body tab-content">
+            <div class="tab-pane active" id="profile">
+              <h6>YOUR PROFILE INFORMATION</h6>
+              <form>
+                <div class="form-group">
+                  <label for="fullName">Full Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="fullName"
+                    aria-describedby="fullNameHelp"
+                    placeholder="Enter your full name"
+                  />
+                  <small id="fullNameHelp" class="form-text text-muted"
+                    >Your name may appear around here where you are mentioned. You can change or remove it at any time.</small
+                  >
+                </div>
+                <div class="form-group">
+                  <label for="location">Location</label>
+                  <input type="text" class="form-control" id="location" placeholder="Enter your location" />
+                </div>
+                <div class="form-group small text-muted">
+                  All of the fields on this page are optional and can be deleted at any time,
+                  and by filling them out, you're giving us consent to share this data
+                  wherever your user profile appears.
+                </div>
+              </form>
+  
+              <hr />
+              <div class="mt-3">
+                <h6>NOTIFICATION SETTINGS</h6>
+                <form>
+                  <div class="form-group mb-0">
+                    <ul class="list-group list-group-sm">
+                      <li class="list-group-item has-icon">
+                        Daily email updates
+                        <div class="custom-control custom-control-nolabel custom-switch ml-auto">
+                          <input
+                            type="checkbox"
+                            class="custom-control-input"
+                            id="customSwitch1"
+                            [checked]="settings.daily_email_updates"
+                            (change)="setSettings(!settings.daily_email_updates)"
+                          />
+                          <label class="custom-control-label" for="customSwitch1"></label>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

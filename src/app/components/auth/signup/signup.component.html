@@ -1,0 +1,59 @@
+<div class="card text-left mb-3">
+    <div class="card-body">
+      <form [formGroup]="signUpForm" (ngSubmit)="handleSubmit()">
+        <div *ngIf="error" class="alert alert-danger">
+          Some error occurred
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" id="email" placeholder="Enter email" formControlName="email" [ngClass]="{
+            'is-invalid': signUpForm.controls['email'].touched && signUpForm.controls['email'].invalid
+          }">
+          <div *ngIf="signUpForm.get('email').invalid && signUpForm.get('email').touched" class="invalid-feedback">
+            <div *ngIf="signUpForm.get('email').hasError('required')">Email is required</div>
+            <div *ngIf="signUpForm.get('email').hasError('email')">Email is invalid</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input type="text" class="form-control" id="firstName" placeholder="Enter first name" formControlName="firstName" [ngClass]="{
+            'is-invalid': signUpForm.controls['firstName'].touched && signUpForm.controls['firstName'].invalid
+          }">
+          <div *ngIf="signUpForm.get('firstName').invalid && signUpForm.get('firstName').touched" class="invalid-feedback">
+            First Name is required
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input type="text" class="form-control" id="lastName" placeholder="Enter last name" formControlName="lastName" [ngClass]="{
+            'is-invalid': signUpForm.controls['lastName'].touched && signUpForm.controls['lastName'].invalid
+          }">
+          <div *ngIf="signUpForm.get('lastName').invalid && signUpForm.get('lastName').touched" class="invalid-feedback">
+            Last Name is required
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" id="password" placeholder="Enter password" formControlName="password" [ngClass]="{
+            'is-invalid': signUpForm.controls['password'].touched && signUpForm.controls['password'].invalid
+          }">
+          <div *ngIf="signUpForm.get('password').invalid && signUpForm.get('password').touched" class="invalid-feedback">
+            <div *ngIf="signUpForm.get('password').hasError('required')">Password is required</div>
+            <div *ngIf="signUpForm.get('password').hasError('minlength')">Password is too short</div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="password2">Repeat Password</label>
+          <input type="password" class="form-control" id="password2" placeholder="Enter password2" formControlName="password2">
+          <div *ngIf="signUpForm.hasError('passwordMismatch') && signUpForm.get('password2').dirty" class="invalid-feedback" style="display: block;">
+            Passwords do not match
+          </div>          
+        </div>
+        <div class="btn-group" role="group" aria-label="">
+          <button type="submit" class="btn btn-primary">Sign Up</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  

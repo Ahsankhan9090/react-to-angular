@@ -1,0 +1,56 @@
+<div class="card">
+    <div class="card-body">
+  
+      <div>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">
+              Message
+            </div>
+          </div>
+          <input type="text" class="form-control" aria-label="Filter message" aria-describedby="filter-message" (input)="handleFilterMessageChange($event)" />
+        </div>
+        <button type="button" class="btn btn-primary" (click)="fetchAudits()">Submit</button>
+      </div>
+  
+      <div>
+        <div>
+          <button
+            type="button"
+            class="btn"
+            [class.btn-primary]="page === pagination.currentPage"
+            [class.btn-secondary]="page !== pagination.currentPage"
+            *ngFor="let page of getPageNumbers()"
+            (click)="handleChangePage(page)"
+          >
+            {{ page }}
+          </button>
+        </div>
+  
+        <table class="table table-hover table-responsive-sm">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Event</th>
+              <th scope="col">Status</th>
+              <th scope="col">Message</th>
+              <th scope="col">User</th>
+              <th scope="col">Created At</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let audit of getVisibleAudits()">
+              <td>{{ audit.id }}</td>
+              <td>{{ audit.event }}</td>
+              <td>{{ audit.status }}</td>
+              <td>{{ audit.message }}</td>
+              <td>{{ audit.user_id }}</td>
+              <td>{{ audit.created_at }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  
+    </div>
+  </div>
+  

@@ -1,0 +1,23 @@
+<div class="App">
+    <header class="App-header">
+      <img src="assets/logo/logo.svg" class="App-logo" alt="logo" />
+      <h1 class="App-title">
+        Welcome to React. This demo was modified to include &lt;POSTS&gt; module
+      </h1>
+      <ng-container *ngIf="user && user.id">
+        <p>Hello, {{ user.firstName }} {{ user.lastName }}</p>
+      </ng-container>
+      <div class="d-flex justify-content-center">
+        <ng-container *ngIf="!user">
+          <a routerLink="/sign-in" class="btn btn-success mr-2">Sign In</a>
+        </ng-container>
+        <ng-container *ngIf="!user">
+          <a routerLink="/sign-up" class="btn btn-success mr-2">Sign Up</a>
+        </ng-container>
+        <ng-container *ngIf="user && user.id">
+          <button type="button" (click)="handleLogout()" class="btn btn-danger">Logout</button>
+        </ng-container>
+      </div>
+    </header>
+  </div>
+  

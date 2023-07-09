@@ -1,11 +1,12 @@
-/* To learn more about this file see: https://angular.io/config/tsconfig. */
+/* tslint:disable */
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "strict": false,
+    "strictPropertyInitialization": false,
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
-    "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
@@ -31,3 +32,4 @@
     "strictTemplates": true
   }
 }
+/* tslint:enable */
